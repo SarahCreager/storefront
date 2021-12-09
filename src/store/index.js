@@ -2,13 +2,17 @@ import { createStore, combineReducers } from 'redux';
 
 // add our reducers
 import productReducer from './products.js';
+import categoriesReducer from './categories.js';
 
-// TODO: change votes
-let reducers = combineReducers({votes: productReducer});
+
+let reducers = combineReducers({
+  products: productReducer,
+  categories: categoriesReducer,
+});
 
 // create our "store" - stands for storage not storefront :P
-const store = () => {
-  return createStore(reducers);
-};
+const store = () => createStore(reducers);
+
 
 export default store;
+

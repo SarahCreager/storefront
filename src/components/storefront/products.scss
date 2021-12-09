@@ -1,0 +1,21 @@
+#productContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+
+  #card {
+    background-color: #f0f3eb;
+  
+    #name {
+      color:#2B3C1E;
+    }
+  
+    #description {
+      color: #939C79;
+    }
+  }
+}
+

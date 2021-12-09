@@ -1,35 +1,50 @@
-// let initialState = {
-//   products: [
-//     { name: 'Jacob', voteCount: 0 },
-//     { name: 'Adrian', voteCount: 0 },
-//     { name: 'Hexx', voteCount: 0 },
-//   ],
-//   totalVotes: 0,
-// };
+import snake from '../img/snakeplant.jpg';
+import strawberry from '../img/strawberryplant.png';
+import fiddle from '../img/fiddleplant.png';
 
-// function productReducer(state = initialState, action) {
+let initialState = {
+  productList: [
+    {
+      name: 'Fiddle Leaf Fig',
+      category: 'indoor',
+      price:'$$',
+      inventory: 20, 
+      description: 'This tall, dramatic plant adds atmosphere to any room.',
+      img: fiddle
+    },
+    {
+      name: 'Strawberry Plant',
+      category: 'outdoor',
+      price:'$',
+      inventory: 30, 
+      description: 'A plant that also serves as a tasty treat.',
+      img: strawberry
+    },
+    {
+      name: 'Snake Plant',
+      category: 'easy',
+      price:'$$',
+      inventory: 10, 
+      description: 'The plant that thrives on neglect.',
+      img: snake
+    }
+  ]
+};
 
-//   let { type, payload } = action;
+function productReducer(state = initialState, action) {
 
-//   switch (type) {
-//   case 'ADD_VOTE':
+  switch (action.type) {
 
-//     let totalVotes = state.totalVotes + 1;
-//     let productList = state.products.map(product => {
-//       if (product.name === payload) {
-//         return {...product, voteCount: product.voteCount + 1 };
-//       } else {
-//         return product;
-//       }
-//     });
+  case 'SELECT_CATEGORY':
+    if (action.payload){
+      let filteredProducts = initialState.productList.filter(product => product.category === action.payload);
+      return { productList: filteredProducts };
+    }
+    return initialState;
+  default:
+    return state;
+  }
+}
 
-//     return { productList, totalVotes };
-//   case 'RESET_VOTES':
-//     return initialState;
-//   default:
-//     return state;
-//   }
-// }
-
-// export default productReducer;
+export default productReducer;
 

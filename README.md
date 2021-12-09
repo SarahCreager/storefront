@@ -32,4 +32,4 @@ As a user, I want a clean, easy to use user interface so that I can shop the onl
 
 ## Deployment Links
 
-coming soon...
+[netlify](https://creager-storefront.netlify.app/)
