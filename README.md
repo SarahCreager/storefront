@@ -40,4 +40,4 @@ As a user, I want to be able to remove an item from my shopping cart
 
 ## Deployment Links
 
-[netlify](https://creager-storefront.netlify.app/)
+[netlify](https://plantopia-storefront.netlify.app/)
