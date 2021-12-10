@@ -1,8 +1,8 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import SimpleCart from '../cart/simplecart';
 import './header.scss';
-
 
 function Header() {
 
@@ -12,13 +12,10 @@ function Header() {
         <Typography variant="h3" component="div" sx={{ flexGrow: 1 }} id='title'>
           Plantopia
         </Typography>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} id='cart'>
-          cart{}
-        </Typography>
+        <SimpleCart/>
       </AppBar>
     </Box>
   );
 }
 
 export default Header;
-

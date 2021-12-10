@@ -10,7 +10,8 @@ let initialState = {
       price: '$$',
       inventory: 20,
       description: 'This tall, dramatic plant adds atmosphere to any room.',
-      img: fiddle
+      img: fiddle,
+      count:0
     },
     {
       name: 'Strawberry Plant',
@@ -18,7 +19,8 @@ let initialState = {
       price: '$',
       inventory: 30,
       description: 'A plant that also serves as a tasty treat.',
-      img: strawberry
+      img: strawberry,
+      count:0
     },
     {
       name: 'Snake Plant',
@@ -26,7 +28,8 @@ let initialState = {
       price: '$$',
       inventory: 10,
       description: 'The plant that thrives on neglect.',
-      img: snake
+      img: snake,
+      count:0
     }
   ]
 };
