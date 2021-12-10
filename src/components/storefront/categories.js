@@ -10,7 +10,6 @@ import './categories.scss';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
-
   return (
     <div
       role="tabpanel"
@@ -48,19 +47,23 @@ function Categories(props) {
     <Box sx={{ width: '100%' }} data-testid="categories">
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} centered>
-          <Tab label="Indoor plants" {...a11yProps(0)} name='indoor'/>
-          <Tab label="Outdoor plants" {...a11yProps(1)} name='outdoor'/>
-          <Tab label="If you kill plants" {...a11yProps(2)} name='easy'/>
+          <Tab label="All the plants" {...a11yProps(0)} name='all' />
+          <Tab label="Indoor plants" {...a11yProps(1)} name='indoor' />
+          <Tab label="Outdoor plants" {...a11yProps(2)} name='outdoor' />
+          <Tab label="If you kill plants" {...a11yProps(3)} name='easy' />
         </Tabs>
       </Box>
       <Box id='categoryValues'>
-        <TabPanel value={value} name='indoor' index={0}>
+        <TabPanel value={value} name='all' index={0}>
+          <p>all the plants</p>
+        </TabPanel>
+        <TabPanel value={value} name='indoor' index={1}>
           <p>indoor plants</p>
         </TabPanel>
-        <TabPanel value={value} name='outdoor'index={1}>
+        <TabPanel value={value} name='outdoor' index={2}>
           <p>outdoor plants</p>
         </TabPanel>
-        <TabPanel value={value} name='easy' index={2}>
+        <TabPanel value={value} name='easy' index={3}>
           <p>if you kill plants</p>
         </TabPanel>
       </Box>
@@ -68,14 +71,16 @@ function Categories(props) {
   );
 }
 
+// function that receives state as a parameter and allows our component to take the state from the store and read it inside the component. receives state from connect
 const mapStateToProps = state => {
   return {
     categories: state.categories.categoryList,
   };
 };
 
+// dispatches actions to our reducer
 const mapDispatchToProps = dispatch => ({
-  selectCategory: (category) => dispatch({type: 'SELECT_CATEGORY', payload: category}),
+  selectCategory: (category) => dispatch({ type: 'SELECT_CATEGORY', payload: category }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);
