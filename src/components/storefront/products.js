@@ -9,9 +9,6 @@ import Container from '@mui/material/Container';
 import './products.scss';
 import { connect } from 'react-redux';
 
-
-
-
 const Products = props => {
 
   return (
@@ -44,7 +41,6 @@ const Products = props => {
       </Container>
     </>
   );
-
 };
 
 const mapStateToProps = state => ({

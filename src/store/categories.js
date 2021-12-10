@@ -2,6 +2,11 @@
 let initialState = {
   categoryList: [
     {
+      name: 'all',
+      displayName: 'All the plants',
+      description: 'Plants on plants'
+    },
+    {
       name: 'indoor',
       displayName: 'Indoor plants',
       description: 'Plants that like the pampered life'
@@ -17,18 +22,20 @@ let initialState = {
       description: 'Plants that even you can keep alive'
     }
   ],
-  activeCategory: 'indoor'
+  activeCategory: 'all'
 };
 
 function categoryReducer(state = initialState, action) {
+  // destructure type and payload from the action
+  let {type, payload} = action;
 
-  switch (action.type) {
+  switch (type) {
   case 'SELECT_CATEGORY':
 
-    if(state.categoryList.includes(action.payload)) {
-      return { categoryList: state.categoryList, activeCategory: action.payload };
+    if(state.categoryList.includes(payload)) {
+      return {...state, activeCategory: payload };
     } else {
-      return { categoryList: state.categoryList, activeCategory: state.activeCategory };
+      return {...state, activeCategory: state.activeCategory };
     }
   default:
     return state;
