@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import SpaIcon from '@mui/icons-material/Spa';
 import GrassIcon from '@mui/icons-material/Grass';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import './simplecart.scss';
 
 
 function SimpleCart(props) {
@@ -31,25 +32,26 @@ function SimpleCart(props) {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <ListItemText primary='Cart' />
+      <ListItemText primary='CART' id='cartTitle'/>
       <Divider />
       <List>
         {props.cart.map((product, index) => (
           <ListItem button key={index}>
-            <ListItemIcon>
+            <ListItemIcon id='itemIcon'>
               {index % 2 === 0 ? <SpaIcon /> : <GrassIcon />}
             </ListItemIcon>
             <ListItemText secondary={product.count} />
             <ListItemText primary={product.name} />
+            <ListItemText primary='X' onClick={() => props.removeFromCart(product)}/>
           </ListItem>
         ))}
         <Divider />
         <ListItem>
           <ListItemIcon>
-            <ShoppingCartIcon />
+            <ShoppingCartIcon id='shoppingCartIcon'/>
           </ListItemIcon>
           <ListItemText primary={props.totalItems} />
-          <ListItemText primary='CART TOTAL' />
+          <ListItemText primary='CART TOTAL'/>
         </ListItem>
 
       </List>
@@ -85,6 +87,7 @@ const mapStateToProps = state => {
 // dispatches actions to our reducer
 const mapDispatchToProps = dispatch => ({
   addToCart: (product) => dispatch({ type: 'ADD_TO_CART', payload: product }),
+  removeFromCart: (product) => dispatch({ type: 'REMOVE_FROM_CART', payload: product }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SimpleCart);

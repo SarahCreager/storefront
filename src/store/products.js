@@ -1,6 +1,7 @@
 import snake from '../img/snakeplant.jpg';
 import strawberry from '../img/strawberryplant.png';
 import fiddle from '../img/fiddleplant.png';
+import axios from 'axios';
 
 let initialState = {
   productList: [
@@ -33,6 +34,15 @@ let initialState = {
     }
   ]
 };
+async function getProducts (dispatch) {
+  //TODO connect to api
+  const response = await axios.get('http://localhost:3003/');
+
+  dispatch({
+    type: 'GET_PRODUCTS',
+    payload: response.data
+  });
+}
 
 function productReducer(state = initialState, action) {
 
@@ -44,10 +54,12 @@ function productReducer(state = initialState, action) {
       return {productList: filteredProducts};
     }
     return initialState;
+  case 'GET_PRODUCTS':
+    return action.payload;
   default:
     return state;
   }
 }
 
-export default productReducer;
+export default {productReducer, getProducts} ;
 

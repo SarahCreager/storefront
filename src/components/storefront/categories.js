@@ -38,7 +38,6 @@ function Categories(props) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
-    console.log('event', event.target.name);
     props.selectCategory(event.target.name);
     setValue(newValue);
   };
