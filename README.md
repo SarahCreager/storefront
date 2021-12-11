@@ -20,6 +20,11 @@ As a user, I want to change the quantity of items I intend to purchase in my sho
 
 As a user, I want to be able to remove an item from my shopping cart
 
+
+As a user, I want to interact with live inventory so that I have confidence that the displayed products are in stock
+
+As a user, I want to know to that when I add an item to my cart, that it is removed from inventory so that no other users can purchase it
+
 ## Features
 
 * Create a visually appealing site using Material UI
@@ -37,6 +42,13 @@ As a user, I want to be able to remove an item from my shopping cart
 * Install Material UI as a dependency
 
 * Write an App component that serves as the container for all sub-components of this application
+
+* Load the category and product list from a remote API on page load.
+
+* Update the product quantity in stock when adding items to (or removing from) the cart
+
+* Continue to use multiple reducers
+
 
 ## Deployment Links
 
