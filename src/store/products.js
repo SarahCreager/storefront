@@ -12,7 +12,7 @@ let initialState = {
       inventory: 20,
       description: 'This tall, dramatic plant adds atmosphere to any room.',
       img: fiddle,
-      count:0
+      count: 0
     },
     {
       name: 'Strawberry Plant',
@@ -21,7 +21,7 @@ let initialState = {
       inventory: 30,
       description: 'A plant that also serves as a tasty treat.',
       img: strawberry,
-      count:0
+      count: 0
     },
     {
       name: 'Snake Plant',
@@ -30,19 +30,20 @@ let initialState = {
       inventory: 10,
       description: 'The plant that thrives on neglect.',
       img: snake,
-      count:0
+      count: 0
     }
   ]
 };
-async function getProducts (dispatch) {
-  //TODO connect to api
-  const response = await axios.get('http://localhost:3003/');
 
-  dispatch({
-    type: 'GET_PRODUCTS',
-    payload: response.data
-  });
-}
+// let initialState = {
+//   productList: []
+// };
+
+export const getProducts = () => async (dispatch) => {
+  const response = await axios.get('http://localhost:3003/products');
+  
+  dispatch({ type: 'GET_PRODUCTS', payload: response.data });
+};
 
 function productReducer(state = initialState, action) {
 
@@ -51,15 +52,15 @@ function productReducer(state = initialState, action) {
   case 'SELECT_CATEGORY':
     if (action.payload !== 'all') {
       let filteredProducts = initialState.productList.filter(product => product.category === action.payload);
-      return {productList: filteredProducts};
+      return { productList: filteredProducts };
     }
     return initialState;
   case 'GET_PRODUCTS':
-    return action.payload;
+    return { productList: action.payload };
   default:
     return state;
   }
 }
 
-export default {productReducer, getProducts} ;
+export default productReducer;
 
