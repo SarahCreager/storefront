@@ -41,7 +41,7 @@ let initialState = {
 
 export const getProducts = () => async (dispatch) => {
   const response = await axios.get('http://localhost:3003/products');
-  
+
   dispatch({ type: 'GET_PRODUCTS', payload: response.data });
 };
 

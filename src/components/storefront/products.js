@@ -13,7 +13,7 @@ import getProducts from '../../store/products';
 import { useEffect } from 'react';
 
 const Products = props => {
-  
+
   useEffect(() => {
     props.getAllProducts();
   }, []);

@@ -2,7 +2,7 @@
 
 ## Problem Domain
 
-This is the second part of a 4-Phase build of the storefront application. In this first phase, I setup the basic scaffolding of the application with initial styling and behaviors. I organized the file structure and state management so that the application can be expanded upon in a scalable manner. In phase 2, I implemented the the “Add to Cart” feature, which allows the user to select products and have them persist in their “shopping cart” for later purchase.
+This is the 3rd part part of a 4-Phase build of the storefront application. In this first phase, I setup the basic scaffolding of the application with initial styling and behaviors. I organized the file structure and state management so that the application can be expanded upon in a scalable manner. In phase 2, I implemented the the “Add to Cart” feature, which allows the user to select products and have them persist in their “shopping cart” for later purchase. In phase 3, I connect my application to a live server. 
 
 ## User Stories
 
