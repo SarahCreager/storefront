@@ -1,4 +1,7 @@
-import { createStore, combineReducers } from 'redux';
+import { applyMiddleware, createStore, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+
 
 // add our reducers
 import productReducer from './products.js';
@@ -11,7 +14,9 @@ let reducers = combineReducers({
   cart: cartReducer
 });
 
+const middleware = applyMiddleware(thunk, logger);
+
 // create our "store" - stands for storage not storefront :P
-const store = () => createStore(reducers);
+const store = () => createStore(reducers, middleware);
 
 export default store;
