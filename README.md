@@ -2,7 +2,7 @@
 
 ## Problem Domain
 
-This is the 3rd part part of a 4-Phase build of the storefront application. In this first phase, I setup the basic scaffolding of the application with initial styling and behaviors. I organized the file structure and state management so that the application can be expanded upon in a scalable manner. In phase 2, I implemented the the “Add to Cart” feature, which allows the user to select products and have them persist in their “shopping cart” for later purchase. In phase 3, I connect my application to a live server. 
+This is the final part part of a 4-Phase build of the storefront application. In this first phase, I setup the basic scaffolding of the application with initial styling and behaviors. I organized the file structure and state management so that the application can be expanded upon in a scalable manner. In phase 2, I implemented the the “Add to Cart” feature, which allows the user to select products and have them persist in their “shopping cart” for later purchase. In phase 3, I connect my application to a live server. In phase 4, I added detail pages for individual products as well as the the cart checkout page.
 
 ## User Stories
 
@@ -24,6 +24,10 @@ As a user, I want to be able to remove an item from my shopping cart
 As a user, I want to interact with live inventory so that I have confidence that the displayed products are in stock
 
 As a user, I want to know to that when I add an item to my cart, that it is removed from inventory so that no other users can purchase it
+
+As a user, I want to see a full detail view of a product so that I can make a more informed choice about purchasing it.
+
+As a user, I want to view my full cart and initiate the checkout process so that I can purchase my items and have them delivered
 
 ## Features
 
@@ -49,6 +53,13 @@ As a user, I want to know to that when I add an item to my cart, that it is remo
 
 * Continue to use multiple reducers
 
+* Add routing to the application
+
+* Link every product to a page that displays the full product details
+
+* Link the “Cart” summary in the header to a full shopping cart page with shipping/payment forms
+
+* Additionally, we will be swapping out our Redux store and replacing it with a store built using Redux Toolkit
 
 ## Deployment Links
 
