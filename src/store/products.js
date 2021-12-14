@@ -1,48 +1,44 @@
-import snake from '../img/snakeplant.jpg';
-import strawberry from '../img/strawberryplant.png';
-import fiddle from '../img/fiddleplant.png';
-import axios from 'axios';
+// import snake from '../img/snakeplant.jpg';
+// import strawberry from '../img/strawberryplant.png';
+// import fiddle from '../img/fiddleplant.png';
 
-let initialState = {
-  productList: [
-    {
-      name: 'Fiddle Leaf Fig',
-      category: 'indoor',
-      price: '$$',
-      inventory: 20,
-      description: 'This tall, dramatic plant adds atmosphere to any room.',
-      img: fiddle,
-      count: 0
-    },
-    {
-      name: 'Strawberry Plant',
-      category: 'outdoor',
-      price: '$',
-      inventory: 30,
-      description: 'A plant that also serves as a tasty treat.',
-      img: strawberry,
-      count: 0
-    },
-    {
-      name: 'Snake Plant',
-      category: 'easy',
-      price: '$$',
-      inventory: 10,
-      description: 'The plant that thrives on neglect.',
-      img: snake,
-      count: 0
-    }
-  ]
-};
 
 // let initialState = {
-//   productList: []
+//   productList: [
+//     {
+//       name: 'Fiddle Leaf Fig',
+//       category: 'indoor',
+//       price: '$$',
+//       inventory: 20,
+//       description: 'This tall, dramatic plant adds atmosphere to any room.',
+//       img: fiddle,
+//       count: 0
+//     },
+//     {
+//   name: 'Strawberry Plant',
+//   category: 'outdoor',
+//   price: '$',
+//   inventory: 30,
+//   description: 'A plant that also serves as a tasty treat.',
+//   img: strawberry,
+//   count: 0
+// },
+//     {
+//       name: 'Snake Plant',
+//       category: 'easy',
+//       price: '$$',
+//       inventory: 10,
+//       description: 'The plant that thrives on neglect.',
+//       img: snake,
+//       count: 0
+//     }
+//   ],
+//   filteredProducts: []
 // };
 
-export const getProducts = () => async (dispatch) => {
-  const response = await axios.get('http://localhost:3003/products');
-
-  dispatch({ type: 'GET_PRODUCTS', payload: response.data });
+let initialState = {
+  productList: [],
+  filteredProducts: []
 };
 
 function productReducer(state = initialState, action) {
@@ -51,12 +47,12 @@ function productReducer(state = initialState, action) {
 
   case 'SELECT_CATEGORY':
     if (action.payload !== 'all') {
-      let filteredProducts = initialState.productList.filter(product => product.category === action.payload);
-      return { productList: filteredProducts };
+      let filteredProductList = state.productList.filter(product => product.category === action.payload);
+      return { ...state, filteredProducts: filteredProductList };
     }
-    return initialState;
+    return {...state, filteredProducts: state.productList};
   case 'GET_PRODUCTS':
-    return { productList: action.payload };
+    return { ...state, productList: action.payload, filteredProducts: action.payload };
   default:
     return state;
   }

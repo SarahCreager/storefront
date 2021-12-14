@@ -1,6 +1,5 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
 
 
 // add our reducers
@@ -14,7 +13,7 @@ let reducers = combineReducers({
   cart: cartReducer
 });
 
-const middleware = applyMiddleware(thunk, logger);
+const middleware = applyMiddleware(thunk);
 
 // create our "store" - stands for storage not storefront :P
 const store = () => createStore(reducers, middleware);
