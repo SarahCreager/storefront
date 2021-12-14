@@ -11,8 +11,8 @@ import { connect } from 'react-redux';
 import SpaIcon from '@mui/icons-material/Spa';
 import GrassIcon from '@mui/icons-material/Grass';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Checkout from './checkout';
 import './simplecart.scss';
-
 
 function SimpleCart(props) {
   const [state, setState] = React.useState({ right: false, });
@@ -56,6 +56,7 @@ function SimpleCart(props) {
 
       </List>
       <Divider />
+      <Checkout />
     </Box>
   );
 
