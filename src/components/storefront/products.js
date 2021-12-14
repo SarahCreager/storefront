@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import getProduct from '../../store/actions/product';
 import './products.scss';
 import { connect } from 'react-redux';
 
@@ -36,6 +37,7 @@ const Products = props => {
                 </CardContent>
                 <CardActions>
                   <Button size="small" id='addToCart' onClick={() => props.addToCart(product)} >Add to cart</Button>
+                  <Button size="small" id='viewDetails' onClick={() => props.getOneProduct(product)} >View Details</Button>
                 </CardActions>
               </Card>
             </Grid>
@@ -55,6 +57,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   selectCategory: (category) => dispatch({ type: 'SELECT_CATEGORY', payload: category }),
   addToCart: (product) => dispatch({ type: 'ADD_TO_CART', payload: product }),
+  getOneProduct: (product) => dispatch(getProduct(product.id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

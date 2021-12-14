@@ -1,5 +1,4 @@
 import './app.scss';
-// import { connect } from 'react-redux';
 import Header from './components/header/header.js';
 import Footer from './components/footer/footer.js';
 import Storefront from './components/storefront/storefront';
@@ -7,7 +6,11 @@ import getProducts from '../src/store/actions/products';
 import getCategories from '../src/store/actions/categories';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-
+import {
+  BrowserRouter,
+  Route,
+  Routes as Switch,
+} from 'react-router-dom';
 
 function App(props) {
 
@@ -18,9 +21,13 @@ function App(props) {
 
   return (
     <>
-      <Header />
-      <Storefront/>
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path='/' element={<Storefront />}></Route>
+        </Switch>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }

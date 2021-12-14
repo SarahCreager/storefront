@@ -38,7 +38,8 @@
 
 let initialState = {
   productList: [],
-  filteredProducts: []
+  filteredProducts: [],
+  selectedProduct: null
 };
 
 function productReducer(state = initialState, action) {
@@ -52,7 +53,11 @@ function productReducer(state = initialState, action) {
     }
     return {...state, filteredProducts: state.productList};
   case 'GET_PRODUCTS':
-    return { ...state, productList: action.payload, filteredProducts: action.payload };
+    return { ...state, productList: action.payload, filteredProducts: action.payload, selectedProduct: null };
+  case 'GET_PRODUCT':  
+    return { ...state, selectedProduct: action.payload };
+  case 'CLOSE_PRODUCT_VIEW':
+    return { ...state, selectedProduct: null };
   default:
     return state;
   }
