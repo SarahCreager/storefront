@@ -15,7 +15,6 @@ function cartReducer(state = initialState, action) {
         cartItem.count++;
         return {...state, totalItems: state.totalItems + 1 };
       } else {
-        // cartItem.count += 1;
         cartItem.count = 1;
         state.totalItems++;
         return {...state, cart: [...state.cart, action.payload] };
